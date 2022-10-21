@@ -1,12 +1,35 @@
 ---
 title: "Assignment 1"
-date: "2022-10-01"
+date: "2022-10-20"
+output: html_document
+author: "Ece Acaroğlu"
 ---
 
-This is a template example qmd output page. You may see an example R code below.
 
-```{r}
-set.seed(1)
-vec1 <- sample(LETTERS,5)
-paste0(vec1,collapse="")
-```
+
+
+##About Me 
+
+Hello Everyone ! :) My name is Ece. I graduated Industrial and System Engineering from Yeditepe University in 2019. But i have been working in Eczacıbaşı since 2018. I have been working as IT analsyt for first 3 year. Then i want to switch carrer path and move to analytic role within IT department. I worked as Data Analyst since then. I hope with this programm i will be forward in this carrer path more efficient.
+
+Here is my Linkedin profile also -> https://www.linkedin.com/in/eceacaroglu/
+
+
+##rconf (2022)
+##R, Python, and Tableau: A Love Triangle
+
+Users often want access to more advanced analytical capabilities in their Tableau dashboards. In this video, suggestions and examples are given about how analyzes made with R and python can actually be used better with tableau in daily life. Thus, the analysis becomes easier to use in business life and can be accessed by everyone.
+
+https://www.rstudio.com/conference/2022/talks/r-python-tableau-love-triangle/
+
+
+##My interests 
+
+https://r-graph-gallery.com/ggplot2-package.html
+
+In this website it show capabilities of R and ggplot2 for visualization. 
+
+And also there is a website which show art make with R programme. You can purhase some arts also :) Sometimes programming can be used to generate figures that are aestetically pleasing, but don't bring any insight. Here are a few pieces of data art built from R and ggplot2. ->https://www.data-to-art.com/
+
+
+

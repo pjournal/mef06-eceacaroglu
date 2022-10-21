@@ -1,0 +1,46 @@
+---
+title: "In Class Exercise 1"
+date: "2022-10-19"
+Author: "Ece Acaroğlu"
+---
+
+##In class exercise here..
+
+
+
+```{r,message=FALSE}
+library(tidyverse)
+library(nycflights13)
+```
+
+First of all we examine the data as how many rows and coloumns we have. 
+
+```{r,message=FALSE}
+glimpse(planes)
+```
+
+##In "plane" dataset, there is a information about construction information and planes information.
+
+
+##calculate seats in Embraer by count of planes. 
+
+```{r,message=FALSE}
+planes %>% 
+  filter(manufacturer == "EMBRAER") %>% 
+  group_by(seats) %>% 
+  summarise(planes_counts = n()) %>% 
+  arrange(desc(planes_counts))
+```
+
+##calculate number of planes according to their manufacturer.
+
+```{r}
+planes %>% 
+  group_by(manufacturer) %>% 
+  summarise(count=n()) %>% 
+  arrange(manufacturer) %>% 
+  print(n=35)
+```
+
+
+
