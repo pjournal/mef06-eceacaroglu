@@ -7,6 +7,29 @@ Author: "Ece Acaroğlu"
 ```{r,message=FALSE}
 
 library(shiny)
+library(tidyverse)
+library(ggplot2)
 
+foreign_students_data <- readRDS(file = '    ')
 
 ```
+
+```
+
+
+install.packages("shiny")
+install.packages("DT")
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("lubridate")
+install.packages("tidyr")
+
+
+
+
+library(shiny)
+library(DT)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(tidyr)
