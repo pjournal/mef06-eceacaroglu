@@ -1,0 +1,12 @@
+---
+title: "Shiny Assignment"
+date: "2022-12-03"
+Author: "Ece Acaroğlu"
+---
+
+```{r,message=FALSE}
+
+library(shiny)
+
+
+```
