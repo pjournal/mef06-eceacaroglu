@@ -1,0 +1,14 @@
+{
+  "hash": "a10238530398b5509d0721512289cc46",
+  "result": {
+    "markdown": "---\ntitle: \"Shiny Assignment\"\ndate: \"2022-12-03\"\nAuthor: \"Ece Acaroğlu\"\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(shiny)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
