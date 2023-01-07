@@ -1,0 +1,10 @@
+---
+title: "Final Project"
+date: "07.01.2023"
+output: html_document
+author: "Ece Acaroğlu"
+---
+
+
+deneme deenenem dendaşdjalıfhalbc
+
