@@ -1,10 +1,156 @@
 ---
 title: "Final Project"
 date: "07.01.2023"
-output: html_document
+output: pdf_document
 author: "Ece Acaroğlu"
 ---
 
+## Part 1 
 
-deneme deenenem dendaşdjalıfhalbc
+### Q1 
+Of course, it is possible that the developments on Generative AI will make a big difference in the way of doing business and in the businesses owned. These AI mechanisms, which produce original content with the little information given, will start to take place in some of the work done by companies. But due to the fact that it is an AI, there may be some ethical or practical problems. For example, the AI might be asked to write an ad campaign given a few striking words and a target audience. However, if we think that this advertising campaign will come out with information on the internet, and if there is a high level of stereotype in the data for an ethnic group, it will deal with it in that way, which may be a misdirection. For now, it may not be possible for it to understand who gave the data for AI or whether it was a joke if it was even made as a joke. As the issues that shape the thoughts of the creator of knowledge change, it will be difficult to form a judgment. The capacity to process this data will go so far. In the light of these issues, of course, it will make it easier for people to do business in the future, and it will be a great help for people in jobs that do not create value. In particular, these findings in humans will progress more intuitively according to their accuracy. In this context, it will create new business lines. Jobs will arise, such as cleaning up the channels that feed the AIs, the data. And this will provide great support to these lines of business so that AIs can be more efficient. The main purpose of people here will be the decision point about the accuracy and intuitive usability of the outputs.
+
+### Q2 
+In order to have clear steps, it would be beneficial to conduct a short preliminary analysis with the teams carrying out the work. In this analysis, the steps of the work that is tried to be automated can be taken out one by one and it can be given as the output at what extent this will be done with RPA. In this context, it will be ensured that the final product is correct and beneficial by obtaining approvals at every stage by the business units performing this work. If the steps cannot be determined at the beginning, the next step should be defined and determined quickly after each step that is completed and approved by dividing into phases.
+
+
+### Q3 
+
+```{r}
+
+head(cranlogs::cran_downloads(
+  packages=c("tidyverse","shiny","rmarkdown","reticulate"),
+  from="2022-11-01",to="2022-11-30"))
+
+```
+
+
+
+## Part 2
+
+In our group project we examine the 'Pandemic Effects on Turkey's Tourism Activites'. Differently, a comparison can be made between 2019, the year the pandemic did not start, and 2021, when normalization began, according to the countries of the tourists and the income earned. Thus, it can be seen whether there is a difference in income according to the changing tourist demographic. I choose just 5 country that effect on income in general. 
+
+
+```{r}
+
+library(ggplot2)
+library(tidyverse)
+library(scales)
+library(dplyr)
+library(tidyr)
+
+residence <- readRDS(url("https://github.com/pjournal/mef06g-ramble-on/blob/main/term_project/melted_depart_by_residence.rds?raw=true"))
+
+residence2 <- filter(residence, Dep_Year %in% c("2019" , "2021") ) 
+
+residence3 <- filter(residence2, Nationality %in% c( "Germany", "Russian Federation" , "United Kingdom" , "Bulgaria", "Iran" , "Ukraine"))
+
+
+ggplot(residence3, aes(x = Dep_Year , y = Departing_Visitors, fill = Nationality)) +
+  geom_bar(position = "dodge", stat ="identity") + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("Number Of Tourists In 2019 And 2021 Based On Departed Country") + 
+  xlab("Year") +
+  ylab("Number Of Tourists") +
+  scale_y_continuous(labels = label_number(suffix = "M", scale = 1e-6)) 
+
+
+
+income_n <- readRDS(url("https://github.com/pjournal/mef06g-ramble-on/blob/main/term_project/income_nights.rds?raw=true"))
+
+income_n2 <- filter(income_n, Year %in% c("2019", "2021") , Quarter == "Anual")
+
+ggplot(income_n2, aes (x = Year , y = Tourism_Income_in_ThousandDollars , fill = Year)) + 
+  geom_bar(stat = "identity") + 
+  ggtitle("Tourism Income in 2019 and 2021") +
+  xlab("Year") + 
+  ylab("Tourism Income") + 
+  scale_y_continuous(labels = label_number(suffix = "M", scale = 1e-6)) 
+ 
+
+```
+
+When we look at these two graphs, it can be said that the decrease in the number of tourists, especially from Germany and England, affects the income. Losing the foreign currency that the tourists from these countries will leave affected the tourism income.
+
+
+## Part 3
+
+```{r}
+
+library(readxl)
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(reshape2)
+library(writexl)
+
+flight <- readxl::read_excel("flight_info.xls", skip = 6) 
+flight <- head(flight, -9)
+colnames(flight)
+
+```
+
+Rename all coloumns name. 
+
+```{r}
+names(flight)[1] <- "IBSS"
+names(flight)[2] <- "Airport"
+names(flight)[3] <- "Year"
+names(flight)[4] <- "All_Landings_and_Takeoffs"
+names(flight)[5] <- "Aircraft_Traffic_Commercial_Domestic_Turkish"
+names(flight)[6] <- "Aircraft_Traffic_Commercial_International_Turkish"
+names(flight)[7] <- "Aircraft_Traffic_Commercial_International_Foreign"
+names(flight)[8] <- "Aircraft_Traffic_Other"
+names(flight)[9] <- "Passengers_Total"
+names(flight)[10] <- "Domestic_Landing_Passenger"
+names(flight)[11] <- "Domestic_Takeoff_Passenger"
+names(flight)[12] <- "International_Landing_Passenger"
+names(flight)[13] <- "International_Takeoff_Passenger"
+names(flight)[14] <- "Total_Freight_Ton"
+names(flight)[15] <- "Total_Cargo"
+names(flight)[16] <- "Total_Baggage"
+names(flight)[17] <- "Total_Mail"
+names(flight)[18] <- "Domestic_Landing_Cargo"
+names(flight)[19] <- "Domestic_Landing_Baggage"
+names(flight)[20] <- "Domestic_Landing_Mail"
+names(flight)[21] <- "Domestic_Takeoff_Cargo"
+names(flight)[22] <- "Domestic_Takeoff_Baggage"
+names(flight)[23] <- "Domestic_Takeoff_Mail"
+names(flight)[24] <- "International_Landing_Cargo"
+names(flight)[25] <- "International_Landing_Baggage"
+names(flight)[26] <- "International_Landing_Mail"
+names(flight)[27] <- "International_Takeoff_Cargo"
+names(flight)[28] <- "International_Takeoff_Baggage"
+names(flight)[29] <- "International_Takeoff_Mail"
+
+flight <- flight %>% fill(IBSS)
+flight <- flight %>% fill(Airport)
+
+glimpse(flight)
+kable(head(flight))
+
+
+```
+
+Save the file as RDS format; 
+
+```{r}
+
+saveRDS(flight, file="flight_info.rds")
+
+```
+
+
+Data Analysis on flight_info we save as RDS; 
+
+```{r}
+
+flight_1 <- filter(flight_info)
+
+
+
+```
+
+
+
 
